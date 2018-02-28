@@ -137,6 +137,13 @@ namespace Program
         /// <param name="results">The results of the Boggle solver.</param>
         void DisplayResults(SolverResults results)
         {
+            if (results.Words.Length == 0)
+            {
+                outputTextBox.Text = "No words found.";
+                toolStripStatusLabel.Text = "No words found";
+                return;
+            }
+
             int length = results.Words[0].Length;
             string outputText = $"{length}-LETTER WORDS";
             foreach (string word in results.Words)
